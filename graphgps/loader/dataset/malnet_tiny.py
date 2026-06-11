@@ -49,7 +49,7 @@ class MalNetTiny(InMemoryDataset):
                  pre_transform: Optional[Callable] = None,
                  pre_filter: Optional[Callable] = None):
         super().__init__(root, transform, pre_transform, pre_filter)
-        self.data, self.slices = torch.load(self.processed_paths[0])
+        self.data, self.slices = torch.load(self.processed_paths[0], weights_only=False)
 
     @property
     def raw_file_names(self) -> List[str]:
@@ -121,4 +121,4 @@ class MalNetTiny(InMemoryDataset):
         torch.save(split_dict, self.processed_paths[1])
 
     def get_idx_split(self):
-        return torch.load(self.processed_paths[1])
+        return torch.load(self.processed_paths[1], weights_only=False)
