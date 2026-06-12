@@ -22,10 +22,10 @@ from torch_geometric.graphgym.utils.device import auto_select_device
 from torch_geometric.graphgym.register import train_dict
 from torch_geometric import seed_everything
 
-from graphgps.finetuning import load_pretrained_model_cfg, \
-    init_model_from_pretrained
-from graphgps.logger import create_logger
-
+#from graphgps.finetuning import load_pretrained_model_cfg, \
+#    init_model_from_pretrained
+#from graphgps.logger import create_logger
+from torch_geometric.graphgym.logger import create_logger
 
 def new_optimizer_config(cfg):
     return OptimizerConfig(optimizer=cfg.optim.optimizer,
