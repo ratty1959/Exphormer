@@ -119,6 +119,16 @@ if __name__ == '__main__':
     dump_cfg(cfg)
     # Set Pytorch environment
     torch.set_num_threads(cfg.num_threads)
+
+    # set train mode
+    cfg.train.mode = 'custom'
+
+    # set cfg.device
+    if torch.cuda.is_available():
+      cfg.device = 'cuda'
+    else:
+      cfg.device = 'cpu'
+  
     # Repeat for multiple experiment runs
     for run_id, seed, split_index in zip(*run_loop_settings()):
         # Set configurations for each run
